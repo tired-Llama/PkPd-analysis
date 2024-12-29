@@ -1,0 +1,69 @@
+# Pharmacokinetic analysis of Eprex
+
+## load packages
+```{r install}
+# install.packages(c("dplyr", "ggplot2", "tidyr", "readr", "data.table", "lubridate", "caret", "plotly", "knitr", "survival"))
+# install.packages(c("meta","metafor","pkr"))
+# install.packages("openxlsx")
+```
+```{r load}
+library(openxlsx)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(knitr)
+library(pkr)
+```
+## load and prepare data
+```{r}
+data  <- read.xlsx("Kinetic_clean.xlsx")
+df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>% 
+    mutate(gender_recoded = as.factor(gender))  %>%  
+    mutate(c0 = level0, dose = 20000)  %>% 
+    reshape(varying = c('level0','level1','level2','level3','level6','level8','level10'), 
+        times = c(0,1,2,3,6,8,10), 
+        v.names = "concentration", 
+        idvar = 'ID',
+        drop = c(seq(4,18,2)),
+        direction = "long")  %>% 
+    arrange(ID)  %>% 
+    drop_na(concentration) %>% 
+    select(ID,time,concentration)
+
+# View(df)
+# glimpse(df)
+```
+## analyze
+```{r}
+pk <- NCA(
+    concData = df,
+    id ="ID",
+    Time = "time",
+    conc = "concentration",
+    fit = "Linear",
+    iAUC = data.frame(Name = "AUC[0-48h]",Start = 0, End = 2),
+    dose = 20000,
+    adm = "Bolus"
+)
+```
+### output
+```{r}
+# //NOTE - create summary measures
+m <- data.frame(pk)  %>% summarise_all(.funs = mean) %>% mutate(ID="Mean")
+sd <- data.frame(pk)  %>% summarise_all(.funs = stats::sd) %>% mutate(ID = "SD")
+#//NOTE - special function to return p-value for swilk test 
+sw <- function(x){
+    result <- shapiro.test(as.double(x))
+    return(result$p.value)
+}
+pv  <- data.frame(pk) %>% summarise_all(.funs = sw)  %>% mutate(ID="SWilk p-value")
+pk <- data.frame(pk) %>% bind_rows(m,sd,pv)
+
+# View(pk)
+kable(pk)
+```
+
+```{r}
+write.csv(pk,"result.csv")
+knit("pkpd analysis.rmd")
+```
