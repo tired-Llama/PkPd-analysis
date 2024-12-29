@@ -39,12 +39,10 @@ df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>%
 ```
 ## Warning: There were 6 warnings in `mutate()`.
 ## The first warning was:
-## ℹ In argument: `across(seq(5, 17, 2), .fns =
-##   as.double)`.
+## ℹ In argument: `across(seq(5, 17, 2), .fns = as.double)`.
 ## Caused by warning:
 ## ! NAs introduced by coercion
-## ℹ Run `dplyr::last_dplyr_warnings()` to see the 5
-##   remaining warnings.
+## ℹ Run `dplyr::last_dplyr_warnings()` to see the 5 remaining warnings.
 ```
 
 ``` r
@@ -148,5 +146,18 @@ plotPK(
 
 ``` r
 write.csv(pk,"result.csv")
-# knit("pkpd analysis.rmd")
+knit("pkpd analysis.rmd")
+```
+
+```
+## 
+## 
+## processing file: pkpd analysis.rmd
+```
+
+```
+## Error in parse_block(g[-1], g[1], params.src, markdown_mode): Duplicate chunk label 'install', which has been used for the chunk:
+## # install.packages(c("dplyr", "ggplot2", "tidyr", "readr", "data.table", "lubridate", "caret", "plotly", "knitr", "survival"))
+## # install.packages(c("meta","metafor","pkr"))
+## # install.packages("openxlsx")
 ```
