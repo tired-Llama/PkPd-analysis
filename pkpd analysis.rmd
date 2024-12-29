@@ -83,5 +83,5 @@ plotPK(
 ```
 ```{r}
 write.csv(pk,"result.csv")
-# knit("pkpd analysis.rmd")
+knit("pkpd analysis.rmd")
 ```
