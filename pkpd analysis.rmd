@@ -28,6 +28,8 @@ df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>%
         direction = "long")  %>% 
     arrange(ID)  %>% 
     drop_na(concentration) %>% 
+    mutate(, time= time*24) %>% 
+    # mutate(concentration = concentration*100) %>% 
     select(ID,time,concentration)
 
 # View(df)
@@ -43,6 +45,9 @@ pk <- NCA(
     fit = "Linear",
     iAUC = data.frame(Name = "AUC[0-48h]",Start = 0, End = 2),
     dose = 20000,
+    uTime = "h",
+    # uConc = "ug/L",
+    # uDose = "ug",
     adm = "Bolus"
 )
 ```
@@ -62,8 +67,21 @@ pk <- data.frame(pk) %>% bind_rows(m,sd,pv)
 # View(pk)
 kable(pk)
 ```
-
+### plot
+```{r}
+plotPK(
+    concData = df,
+    id ="ID",
+    Time = "time",
+    conc = "concentration",
+    fit = "Linear",
+    dose = 20000,
+    unitTime = "h",
+    # unitConc = "ug/L",
+    adm = "Bolus"
+)
+```
 ```{r}
 write.csv(pk,"result.csv")
-knit("pkpd analysis.rmd")
+# knit("pkpd analysis.rmd")
 ```
