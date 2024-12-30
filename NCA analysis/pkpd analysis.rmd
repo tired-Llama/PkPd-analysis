@@ -29,7 +29,7 @@ df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>%
     arrange(ID)  %>% 
     drop_na(concentration) %>% 
     mutate(, time= time*24) %>% 
-    mutate(concentration = concentration*0.1) %>% 
+    mutate(concentration = concentration*0.005) %>% 
     select(ID,time,concentration)
 
 # View(df)
