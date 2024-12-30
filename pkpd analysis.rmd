@@ -29,7 +29,7 @@ df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>%
     arrange(ID)  %>% 
     drop_na(concentration) %>% 
     mutate(, time= time*24) %>% 
-    # mutate(concentration = concentration*100) %>% 
+    mutate(concentration = concentration*0.1) %>% 
     select(ID,time,concentration)
 
 # View(df)
@@ -44,10 +44,8 @@ pk <- NCA(
     conc = "concentration",
     fit = "Linear",
     iAUC = data.frame(Name = "AUC[0-48h]",Start = 0, End = 2),
-    dose = 20000,
+    dose = 2,
     uTime = "h",
-    # uConc = "ug/L",
-    # uDose = "ug",
     adm = "Bolus"
 )
 ```
@@ -75,9 +73,8 @@ plotPK(
     Time = "time",
     conc = "concentration",
     fit = "Linear",
-    dose = 20000,
+    dose = 2,
     unitTime = "h",
-    # unitConc = "ug/L",
     adm = "Bolus"
 )
 ```
