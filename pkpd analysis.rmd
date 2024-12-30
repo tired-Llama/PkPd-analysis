@@ -44,7 +44,7 @@ pk <- NCA(
     conc = "concentration",
     fit = "Linear",
     iAUC = data.frame(Name = "AUC[0-48h]",Start = 0, End = 2),
-    dose = 2,
+    dose = 0.1,
     uTime = "h",
     adm = "Bolus"
 )
@@ -73,7 +73,7 @@ plotPK(
     Time = "time",
     conc = "concentration",
     fit = "Linear",
-    dose = 2,
+    dose = 0.1,
     unitTime = "h",
     adm = "Bolus"
 )
