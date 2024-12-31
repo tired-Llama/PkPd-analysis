@@ -14,7 +14,7 @@ analysis was mainly performed using `pkr` package in R.
 
 ## Population Pharmacodynamic modeling and simulation
 
-[Modeling code](/population%20pk/pop%20pk%20modeling.md)
+[Modeling code](/population%20pk/pop%20pk%20modeling.md)\
 [Model plots](/population%20pk/plot_history.pdf)
 
 
