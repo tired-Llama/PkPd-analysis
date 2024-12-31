@@ -1,0 +1,85 @@
+# population Pharmacokinetic modeling of Eprex
+
+## load packages
+```{r load}
+library(openxlsx)
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(ggplot2)
+```
+## load and prepare data
+```{r}
+data  <- read.xlsx("NCA analysis/Kinetic_clean.xlsx")
+df <- data  %>% mutate(across(seq(5,17,2),.fns = as.double))  %>% 
+    mutate(gender_recoded = as.factor(gender))  %>%  
+    mutate(c0 = level0, dose = 20000)  %>% 
+    reshape(varying = c('level0','level1','level2','level3','level6','level8','level10'), 
+        times = c(0,1,2,3,6,8,10), 
+        v.names = "concentration", 
+        idvar = 'ID',
+        drop = c(seq(4,18,2)),
+        direction = "long")  %>% 
+    arrange(ID)  %>% 
+    drop_na(concentration) %>% 
+    mutate(TIME= time*24) %>% 
+    mutate(DV = concentration*0.005) %>% 
+    mutate(AMT = 0.1, EVID = if_else(time == 0,101,0)) %>% 
+    select(ID,TIME,DV,AMT,EVID)
+
+# View(df)
+# glimpse(df)
+```
+
+```{r}
+# Define the PK model
+# Load required libraries
+library(nlmixr2)
+# library(RxODE)
+ 
+# Define the one-compartment IV bolus model
+one_comp_iv_model <- function() {
+  ini({
+    # Fixed effects (population-level estimates)
+    cl <- 1;        # Clearance (L/hr)
+    v <- 10;        # Volume of distribution (L)
+    # Inter-individual variability (IIV)
+    eta.cl ~ 0.1;   # Variability in clearance
+    eta.v ~ 0.1;    # Variability in volume
+    # Residual unexplained variability (RUV)
+    add.err <- 0.1; # Additive error model
+  })
+  model({
+    # Define individual parameters with variability
+    cl_i <- cl * exp(eta.cl); # Individual clearance
+    v_i <- v * exp(eta.v);    # Individual volume
+    # Initial condition for drug amount in the central compartment
+    centr(0) <- 0.1; # Dose in mg
+    # PK equations
+    d/dt(centr) = -cl_i / v_i * centr; # Drug elimination
+    # Plasma concentration
+    cp = centr / v_i;
+    # Residual variability model
+    cp ~ add(add.err);
+  })
+}
+
+```
+
+```{r}
+# Fit the model using nlmixr2
+fit <- nlmixr2(one_comp_iv_model, df, est = "saem")
+
+# Summary of the fit
+kable(summary(fit))
+```
+
+```{r}
+# Goodness-of-fit plots
+# pdf("population pk/plot_history.pdf")
+# plot(fit)
+# dev.off()
+```
+```{r}
+knit("population pk/pop pk modeling.rmd","population pk/pop pk modeling.md")
+```
