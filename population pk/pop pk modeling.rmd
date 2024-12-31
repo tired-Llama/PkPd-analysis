@@ -71,7 +71,7 @@ one_comp_iv_model <- function() {
 fit <- nlmixr2(one_comp_iv_model, df, est = "saem")
 
 # Summary of the fit
-kable(summary(fit))
+summary(fit)
 ```
 
 ```{r}
