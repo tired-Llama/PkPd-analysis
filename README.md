@@ -8,7 +8,7 @@ furthermore Bolus dose was 20,000 IU which is equivalent to 0.1 mg.\
 for conversion of "mIU/mL" to "ng/mL" conversion factor of `0.001` was used.
 
 analysis was mainly performed using `pkr` package in R.
-- [Analysis code](/NCA%20analysis/pkpd%20analysis.rmd)
+- [Analysis code](/NCA%20analysis/pkpd%20analysis.md)
 - [NCA results](/NCA%20analysis/result.csv)
 - [NCA graphs](/NCA%20analysis/Output/)
 
