@@ -1,0 +1,6 @@
+parameter,statistics(lin),p-value(lin)
+beta_k_GFR_MDRD_,1.76135,0.0782
+beta_k21_baseline,0.002506,0.998
+beta_Cc_baseline_age,3.39537,0.000685
+beta_Cc_baseline_baseline,6.57671,4.81e-11
+beta_Cc_baseline_SEX_Male,2.25718,0.024

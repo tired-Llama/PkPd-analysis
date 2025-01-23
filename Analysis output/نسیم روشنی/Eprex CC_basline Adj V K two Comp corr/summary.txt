@@ -1,0 +1,137 @@
+********************************************************************************
+*                Eprex CC_basline Adj V K two Comp corr.mlxtran                *
+*                January 21, 2025 at 09:23:35                                  *
+*                Monolix version : 2024R1                                      *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_lin     rse(%)   P2.5_lin  P97.5_lin
+V_pop                :                24.2    1.6e+03   6.59e+03      0.437   1.34e+03
+k_pop                :              0.0558      0.225        404    0.00498      0.625
+k12_pop              :             0.00123        inf        inf          0        inf
+k21_pop              :                1.81        inf        inf          0        inf
+Cc_baseline_pop      :                28.9       6.55       22.7       18.8       44.3
+
+Standard Deviation of the Random Effects -
+omega_V              :                1.11       4.17        376      0.104       11.8
+omega_k              :                1.15       2.01        174      0.192       6.94
+omega_k12            :                2.16   3.62e+07   1.68e+09    0.00073   6.41e+03
+omega_k21            :               0.923        nan          0        nan        nan
+omega_Cc_baseline    :               0.709      0.172       24.3      0.449       1.12
+
+Correlations -----------------------------
+corr_V_Cc_baseline   :              0.0553       2.13   3.86e+03     -0.999          1
+corr_k_Cc_baseline   :              -0.398       1.29        324     -0.998      0.989
+corr_k12_Cc_baseline :              -0.513    8.6e+06   1.68e+09         -1        nan
+corr_k21_Cc_baseline :               -0.74   5.51e+04   7.44e+06         -1        nan
+corr_k_V             :              -0.846      0.821       97.1         -1          1
+corr_k12_V           :               0.383   6.46e+06   1.69e+09         -1        nan
+corr_k21_V           :            -0.00193   1.06e+05   5.47e+09         -1        nan
+corr_k12_k           :              -0.146   2.47e+06    1.7e+09         -1        nan
+corr_k21_k           :               0.293   8.44e+04   2.88e+07         -1        nan
+corr_k21_k12         :               0.277   3.46e+07   1.25e+10         -1        nan
+
+Error Model Parameters -------------------
+a                    :              0.0246       1.57   6.38e+03    0.00045       1.34
+b                    :                0.54     0.0907       16.8      0.391      0.746
+
+Elapsed time (seconds):      2.2
+Exploratory phase iterations:      150 (Autostop)
+Smoothing phase iterations:        144 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          16.3          18.7          40.4          54.8           102          32.4
+k           :        0.0124        0.0333        0.0579         0.162         0.418          13.7
+k12         :       0.00069       0.00375       0.00461        0.0176        0.0428          47.6
+k21         :         0.666          1.53          2.18          3.85          8.01          27.4
+Cc_baseline :           8.4          17.4          32.3          44.6           102          4.63
+
+Elapsed time (seconds):      2.3
+Iterations:      323 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          6.55          9.74          16.8          37.8          86.2          24.5
+k           :        0.0103        0.0315        0.0573         0.166          0.28          12.5
+k12         :      0.000162      0.000519       0.00116       0.00318       0.00921          40.7
+k21         :         0.573           1.3          1.79          3.52          6.86          28.5
+Cc_baseline :          7.27          14.5          29.5          40.4          92.6          4.38
+
+Elapsed time (seconds):    0.012
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Linearization -------------------
+
+Correlation Matrix :
+               V_pop         1
+               k_pop  -0.97356         1
+             k12_pop   0.94339  -0.88118         1
+             k21_pop   0.94619  -0.88545   0.99993         1
+     Cc_baseline_pop  0.024787   -0.1012  0.016424  0.016709         1
+             omega_V         0         0         0         0         0         1
+            corr_k_V         0         0         0         0         0   -0.4861         1
+          corr_k12_V         0         0         0         0         0   0.84789  -0.46046         1
+          corr_k21_V         0         0         0         0         0   0.96227   -0.3723   0.86119         1
+  corr_V_Cc_baseline         0         0         0         0         0 -0.055449  -0.22603 -0.078178 -0.041444         1
+             omega_k         0         0         0         0         0    0.9059  -0.77536   0.76631    0.8264  0.092349         1
+          corr_k12_k         0         0         0         0         0  -0.84888   0.46497  -0.99998  -0.86191  0.076234    -0.769         1
+          corr_k21_k         0         0         0         0         0   -0.9087   0.69673  -0.85694  -0.91256 -0.079627   -0.9262   0.85957         1
+  corr_k_Cc_baseline         0         0         0         0         0   0.45422  -0.16852   0.41031   0.40378  -0.87366   0.36223  -0.40991  -0.35016         1
+           omega_k12         0         0         0         0         0  -0.84628   0.46066  -0.99999  -0.85937   0.07836  -0.76518   0.99997   0.85572  -0.40997         1
+        corr_k21_k12         0         0         0         0         0  -0.84839   0.46303  -0.99995  -0.85987  0.078207  -0.76856   0.99993   0.85625  -0.41141   0.99995         1
+corr_k12_Cc_baseline         0         0         0         0         0  -0.84618    0.4599  -0.99999  -0.85924  0.080931  -0.76473   0.99996   0.85523  -0.41204         1   0.99995         1
+           omega_k21       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan       nan
+corr_k21_Cc_baseline         0         0         0         0         0  0.039677  -0.28192 0.0035502  0.048928   0.94466   0.16886-0.0058278  -0.18196  -0.76002-0.0032294-0.0035063-0.00050088       nan         1
+   omega_Cc_baseline         0         0         0         0         0-0.0043644 0.0027777-0.0045022-0.0074979  0.024136  0.014362  0.0044250.00018457  -0.04664 0.0044764 0.0044482 0.0045249       nan  0.018221         1
+                   a         0         0         0         0         0  0.039509 -0.047118   0.02694  0.016692  -0.02467  0.050457 -0.027206 -0.038497  0.049474 -0.026988 -0.027162 -0.027036       nan -0.017806-0.0047461         1
+                   b         0         0         0         0         0 -0.037549  0.057613 -0.028491-0.0025846  0.019806 -0.054941  0.028788  0.034622 -0.054371  0.028648  0.028861  0.028691       nan  0.015417 -0.063094  -0.73956         1
+
+WARNING : Impossible to compute the eigen values of the correlation matrix.
+
+Elapsed time (seconds):    0.007
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         721.67
+Akaike Information Criteria               (AIC) :         765.67
+Corrected Bayesian Information Criteria  (BICc) :         790.08
+Bayesian Information Criteria             (BIC) :         778.09
+
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 13
+Number of observations (obs): 72
+Number of doses: 13
+

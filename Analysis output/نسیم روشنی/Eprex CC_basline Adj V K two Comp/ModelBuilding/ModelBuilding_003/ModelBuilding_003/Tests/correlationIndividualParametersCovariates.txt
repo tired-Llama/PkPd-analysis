@@ -1,0 +1,5 @@
+parameter,covariate,statistics,p-value,test
+k21,beta_k21_GFR_MDRD_,4.55766,0.00104591,t-Test
+k21,beta_k21_age,7.00088,3.71164e-05,t-Test
+Cc_baseline,beta_Cc_baseline_SEX_Male,-34.709,9.33724e-12,t-Test
+Cc_baseline,beta_Cc_baseline_baseline,88.4146,8.38142e-16,t-Test

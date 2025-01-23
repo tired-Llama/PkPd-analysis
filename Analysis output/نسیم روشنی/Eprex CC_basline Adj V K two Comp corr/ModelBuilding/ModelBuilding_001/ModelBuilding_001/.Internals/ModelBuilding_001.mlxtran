@@ -1,0 +1,95 @@
+<DATAFILE>
+
+[FILEINFO]
+file={path='../../../../../nasim roshani 14031012.csv'}
+delimiter = comma
+header={Code, time, obs, amount, age, baseline, GFR_MDRD_, HG1, HG2, IRON, Ferritin, TIBC, RBC1, RBC2, MCV1, MCV2, MAP1, MAP2, GCS1, GCS2, Intube1, Intube2, SrCr1, SrCr2, Hr1, Hr2, Rr1, Rr2, Plt1, Plt2, WBC, Na, K, PH, Hco3, t, HCT, SOFA1, SOFA2, APACHE, SEX}
+
+[CONTENT]
+Code = {use=identifier}
+time = {use=time}
+obs = {use=observation, type=continuous}
+amount = {use=amount}
+age = {use=covariate, type=continuous}
+baseline = {use=covariate, type=continuous}
+GFR_MDRD_ = {use=covariate, type=continuous}
+SOFA1 = {use=covariate, type=continuous}
+SOFA2 = {use=covariate, type=continuous}
+APACHE = {use=covariate, type=continuous}
+SEX = {use=covariate, type=categorical}
+
+<MODEL>
+
+[POPULATION]
+DEFINITION:
+V_pop = {distribution=logNormal, typical=83, sd=1}
+
+[COVARIATE]
+input = {age, SEX, GFR_MDRD_, APACHE, SOFA1, SOFA2, baseline}
+
+SEX = {type=categorical, categories={'Female', 'Male'}}
+
+[INDIVIDUAL]
+input = {V_pop, omega_V, k_pop, omega_k, k12_pop, omega_k12, k21_pop, omega_k21, Cc_baseline_pop, omega_Cc_baseline, corr_k_V, corr_k12_V, corr_k12_k, corr_k21_V, corr_k21_k, corr_k21_k12, corr_V_Cc_baseline, corr_k_Cc_baseline, corr_k12_Cc_baseline, corr_k21_Cc_baseline}
+
+DEFINITION:
+V = {distribution=logNormal, typical=V_pop, sd=omega_V}
+k = {distribution=logNormal, typical=k_pop, sd=omega_k}
+k12 = {distribution=logNormal, typical=k12_pop, sd=omega_k12}
+k21 = {distribution=logNormal, typical=k21_pop, sd=omega_k21}
+Cc_baseline = {distribution=logNormal, typical=Cc_baseline_pop, sd=omega_Cc_baseline}
+correlation = {level=id, r(V, Cc_baseline)=corr_V_Cc_baseline, r(k, Cc_baseline)=corr_k_Cc_baseline, r(k12, Cc_baseline)=corr_k12_Cc_baseline, r(k21, Cc_baseline)=corr_k21_Cc_baseline, r(k, V)=corr_k_V, r(k12, V)=corr_k12_V, r(k21, V)=corr_k21_V, r(k12, k)=corr_k12_k, r(k21, k)=corr_k21_k, r(k21, k12)=corr_k21_k12}
+
+[LONGITUDINAL]
+input = {a, b}
+
+file = '../../../../../Cc_basline adjustiment two comp.txt'
+
+DEFINITION:
+obs = {distribution=normal, prediction=Cc_with_baseline, errorModel=combined1(a, b)}
+
+<FIT>
+data = 'obs'
+model = obs
+
+<PARAMETER>
+Cc_baseline_pop = {value=1, method=MLE}
+V_pop = {value=83, method=MAP}
+a = {value=1, method=MLE}
+b = {value=0.3, method=MLE}
+c = {value=1, method=FIXED}
+corr_V_Cc_baseline = {value=0, method=MLE}
+corr_k12_Cc_baseline = {value=0, method=MLE}
+corr_k12_V = {value=0, method=MLE}
+corr_k12_k = {value=0, method=MLE}
+corr_k21_Cc_baseline = {value=0, method=MLE}
+corr_k21_V = {value=0, method=MLE}
+corr_k21_k = {value=0, method=MLE}
+corr_k21_k12 = {value=0, method=MLE}
+corr_k_Cc_baseline = {value=0, method=MLE}
+corr_k_V = {value=0, method=MLE}
+k12_pop = {value=1, method=MLE}
+k21_pop = {value=1, method=MLE}
+k_pop = {value=0.5, method=MLE}
+omega_Cc_baseline = {value=1, method=MLE}
+omega_V = {value=1, method=MLE}
+omega_k = {value=1, method=MLE}
+omega_k12 = {value=1, method=MLE}
+omega_k21 = {value=1, method=MLE}
+
+<MONOLIX>
+
+[TASKS]
+populationParameters()
+individualParameters(method = {conditionalMean, conditionalMode })
+fim(run = false,method = Linearization)
+logLikelihood(method = Linearization)
+
+[PLOTS]
+run = false
+plots = {indfits = {selected = true}, parameterdistribution = {selected = true}, obspred = {selected = true}, covariancemodeldiagnosis = {selected = true}, covariatemodeldiagnosis = {selected = true}, vpc = {selected = true}, residualsscatter = {selected = true}, residualsdistribution = {selected = true}, randomeffects = {selected = true}, saemresults = {selected = true}}
+
+[SETTINGS]
+GLOBAL:
+exportpath = '../'
+

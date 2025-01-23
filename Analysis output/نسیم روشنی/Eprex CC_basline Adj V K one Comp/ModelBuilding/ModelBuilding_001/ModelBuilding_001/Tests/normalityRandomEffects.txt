@@ -1,0 +1,4 @@
+eta,statistics,p-value
+eta_V,0.936744,0.550779
+eta_k,0.923539,0.0454701
+eta_Cc_baseline,0.949158,0.791356

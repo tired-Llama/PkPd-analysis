@@ -1,0 +1,128 @@
+********************************************************************************
+*          epresx CC_basline adj V K two comp model building.mlxtran           *
+*          January 21, 2025 at 09:26:46                                        *
+*          Monolix version : 2024R1                                            *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------     se_lin     rse(%)   P2.5_lin  P97.5_lin
+V_pop                     :           23.2       13.2         57       9.07       59.4
+k_pop                     :         0.0273     0.0213       77.8    0.00852     0.0877
+beta_k_GFR_MDRD_          :        0.00882    0.00501       56.8  -0.000995     0.0186
+k12_pop                   :       0.000207        inf        inf          0   9.29e+53
+k21_pop                   :       2.08e+06        inf        inf          0        inf
+beta_k21_baseline         :         -0.452        180   3.99e+04       -354        353
+Cc_baseline_pop           :           43.5       17.3       39.7       21.5       88.2
+beta_Cc_baseline_SEX_Male :         -0.413      0.183       44.3     -0.771    -0.0543
+beta_Cc_baseline_age      :        -0.0159    0.00468       29.5    -0.0251   -0.00672
+beta_Cc_baseline_baseline :         0.0179    0.00273       15.2     0.0126     0.0233
+
+Standard Deviation of the Random Effects -
+omega_V                   :           1.05      0.422       40.3      0.513       2.14
+omega_k                   :           1.12      0.273       24.4      0.706       1.77
+omega_k12                 :           2.45   1.65e+03   6.73e+04     0.0165        364
+omega_k21                 :           2.45   1.85e+04   7.52e+05    0.00703        857
+omega_Cc_baseline         :         0.0234      0.785   3.35e+03   0.000591      0.929
+
+Correlations -----------------------------
+corr_k_V                  :          -0.94      0.106       11.3     -0.998     0.0559
+
+Error Model Parameters -------------------
+b                         :          0.538     0.0586       10.9      0.435      0.665
+
+Elapsed time (seconds):        2
+Exploratory phase iterations:      153 (Autostop)
+Smoothing phase iterations:         93 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          7.17          15.8          35.5          54.2          89.9          18.1
+k           :       0.00844        0.0322        0.0474         0.201         0.374          11.2
+k12         :      0.000915       0.00162       0.00343        0.0049        0.0106          92.3
+k21         :             0       0.00339          3.99      1.55e+04      3.66e+05          96.1
+Cc_baseline :          9.12          16.2          28.2          44.2           173          91.5
+
+Elapsed time (seconds):      2.4
+Iterations:      380 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          5.88          10.2          24.6          37.8          76.9          23.2
+k           :       0.00896        0.0338        0.0514         0.179         0.286          19.3
+k12         :      0.000197      0.000204      0.000207      0.000207      0.000209          99.4
+k21         :             0      0.000214         0.193      1.24e+03      1.97e+04          99.4
+Cc_baseline :          9.12          16.2          28.2          44.2           173          92.6
+
+Elapsed time (seconds):    0.012
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE FISHER INFORMATION MATRIX ____________________________________
+
+
+Estimation of the Fisher information matrix by Linearization -------------------
+
+Correlation Matrix :
+                    V_pop         1
+                    k_pop  -0.67421         1
+         beta_k_GFR_MDRD_   0.25452  -0.79176         1
+                  k12_pop  -0.16491  -0.21143   0.18154         1
+                  k21_pop  0.093193  -0.02578 -0.050157  0.020705         1
+        beta_k21_baseline -0.083992  0.019591  0.051845 -0.017866  -0.99945         1
+          Cc_baseline_pop  0.069261 -0.031738  0.020534  -0.11939 -0.049894  0.056147         1
+     beta_Cc_baseline_age -0.081663  0.058111 -0.043944  0.076829   0.16913  -0.17695   -0.8683         1
+beta_Cc_baseline_baseline -0.044753  0.025117-0.0056305   0.21062  0.045715 -0.045797  -0.47453   0.17746         1
+beta_Cc_baseline_SEX_Male -0.005965 -0.022218  0.033453  0.039363  -0.23441   0.23889  -0.36864  0.042021   0.16713         1
+                  omega_V         0         0         0         0         0         0         0         0         0         0         1
+                 corr_k_V         0         0         0         0         0         0         0         0         0         0   -0.1093         1
+                  omega_k         0         0         0         0         0         0         0         0         0         0   0.73814  -0.28156         1
+                omega_k12         0         0         0         0         0         0         0         0         0         0  0.082463  -0.45435 -0.048106         1
+                omega_k21         0         0         0         0         0         0         0         0         0         0  -0.17949  0.015428   -0.1102 -0.026424         1
+        omega_Cc_baseline         0         0         0         0         0         0         0         0         0         0  0.054993  0.072827  0.016336 -0.011201 -0.023782         1
+                        b         0         0         0         0         0         0         0         0         0         0  -0.12065  -0.16713 -0.054201-0.0045027  -0.12325  -0.42179         1
+
+                               min       max   max/min
+Eigen values           :   0.00044       2.3   5.2e+03
+
+Elapsed time (seconds):    0.005
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         698.88
+Akaike Information Criteria               (AIC) :         732.88
+Corrected Bayesian Information Criteria  (BICc) :         752.75
+Bayesian Information Criteria             (BIC) :         742.48
+
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 13
+Number of observations (obs): 72
+Number of doses: 13
+

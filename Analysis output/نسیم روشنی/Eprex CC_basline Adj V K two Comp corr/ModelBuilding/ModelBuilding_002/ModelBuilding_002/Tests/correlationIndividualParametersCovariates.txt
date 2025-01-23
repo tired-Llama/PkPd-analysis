@@ -1,0 +1,5 @@
+parameter,covariate,statistics,p-value,test
+k21,beta_k21_baseline,-22.9874,1.19461e-10,t-Test
+Cc_baseline,beta_Cc_baseline_SEX_Male,-175.079,<2.2e-16,t-Test
+Cc_baseline,beta_Cc_baseline_age,-217.439,<2.2e-16,t-Test
+Cc_baseline,beta_Cc_baseline_baseline,486.195,<2.2e-16,t-Test

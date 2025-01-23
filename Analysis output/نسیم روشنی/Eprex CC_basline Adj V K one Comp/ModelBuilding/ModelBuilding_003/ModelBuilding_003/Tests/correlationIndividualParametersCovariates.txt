@@ -1,0 +1,2 @@
+parameter,covariate,statistics,p-value,test
+V,beta_V_baseline,-3.96751,0.00220548,t-Test

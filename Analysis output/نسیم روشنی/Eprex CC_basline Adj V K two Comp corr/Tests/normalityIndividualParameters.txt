@@ -1,0 +1,6 @@
+parameter,statistics,p-value,test
+V,0.937712,0.402801,Shapiro-Wilk
+k,0.938042,0.668049,Shapiro-Wilk
+k12,0.950777,0.66186,Shapiro-Wilk
+k21,0.951694,0.938077,Shapiro-Wilk
+Cc_baseline,0.949347,0.710275,Shapiro-Wilk

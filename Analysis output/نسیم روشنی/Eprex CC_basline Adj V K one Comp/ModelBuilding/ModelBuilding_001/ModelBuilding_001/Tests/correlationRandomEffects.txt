@@ -1,0 +1,4 @@
+eta1,eta2,coeff,statistics,p-value
+eta_V,eta_k,0,-0.661671,0.520685
+eta_V,eta_Cc_baseline,0,-1.38779,0.190429
+eta_k,eta_Cc_baseline,0,-1.08016,0.301304

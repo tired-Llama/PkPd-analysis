@@ -1,0 +1,94 @@
+********************************************************************************
+*                         ModelBuilding_003.mlxtran                            *
+*                         January 21, 2025 at 09:24:48                         *
+*                         Monolix version : 2024R1                             *
+********************************************************************************
+
+
+ESTIMATION OF THE POPULATION PARAMETERS ________________________________________
+
+Fixed Effects ----------------------------
+V_pop                     :           23.2
+k_pop                     :         0.0273
+beta_k_GFR_MDRD_          :        0.00882
+k12_pop                   :       0.000207
+k21_pop                   :       2.08e+06
+beta_k21_baseline         :         -0.452
+Cc_baseline_pop           :           43.5
+beta_Cc_baseline_SEX_Male :         -0.413
+beta_Cc_baseline_age      :        -0.0159
+beta_Cc_baseline_baseline :         0.0179
+
+Standard Deviation of the Random Effects -
+omega_V                   :           1.05
+omega_k                   :           1.12
+omega_k12                 :           2.45
+omega_k21                 :           2.45
+omega_Cc_baseline         :         0.0234
+
+Correlations -----------------------------
+corr_k_V                  :          -0.94
+
+Error Model Parameters -------------------
+b                         :          0.538
+
+Elapsed time (seconds):      1.3
+Exploratory phase iterations:      153 (Autostop)
+Smoothing phase iterations:         93 (Autostop)
+
+ _______________________________________________________________________________
+
+
+
+ESTIMATION OF THE INDIVIDUAL PARAMETERS ________________________________________
+
+
+Estimation of the individual parameters by Conditional Distribution ------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          7.17          15.8          35.5          54.2          89.9          18.1
+k           :       0.00844        0.0322        0.0474         0.201         0.374          11.2
+k12         :      0.000915       0.00162       0.00343        0.0049        0.0106          92.3
+k21         :             0       0.00339          3.99      1.55e+04      3.66e+05          96.1
+Cc_baseline :          9.12          16.2          28.2          44.2           173          91.5
+
+Elapsed time (seconds):      2.1
+Iterations:      380 (Autostop)
+
+ -------------------------------------------------------------------------------
+
+
+Estimation of the individual parameters by Conditional Mode --------------------
+                        min            Q1        median            Q3           max  shrinkage(%)
+V           :          5.88          10.2          24.6          37.8          76.9          23.2
+k           :       0.00896        0.0338        0.0514         0.179         0.286          19.3
+k12         :      0.000197      0.000204      0.000207      0.000207      0.000209          99.4
+k21         :             0      0.000214         0.193      1.24e+03      1.97e+04          99.4
+Cc_baseline :          9.12          16.2          28.2          44.2           173          92.6
+
+Elapsed time (seconds):    0.021
+
+ -------------------------------------------------------------------------------
+
+ _______________________________________________________________________________
+
+
+
+
+ESTIMATION OF THE LOG-LIKELIHOOD _______________________________________________
+
+                                                           (lin)
+-2 x log-likelihood                       (OFV) :         698.88
+Akaike Information Criteria               (AIC) :         732.88
+Corrected Bayesian Information Criteria  (BICc) :         752.75
+Bayesian Information Criteria             (BIC) :         742.48
+
+Elapsed time                          (seconds) :           0.00
+CPU time                              (seconds) :           0.00
+
+ _______________________________________________________________________________
+
+DATASET INFORMATION
+Number of individuals: 13
+Number of observations (obs): 72
+Number of doses: 13
+

@@ -1,0 +1,6 @@
+parameter,statistics,p-value,test
+V,0.946882,0.841753,Shapiro-Wilk
+k,0.136409,0.0180675,Kolmogorov-Smirnov
+k12,0.914401,0.0158947,Shapiro-Wilk
+k21,0.531952,4.44089e-16,Kolmogorov-Smirnov
+Cc_baseline,0.055713,0.99997,Kolmogorov-Smirnov
