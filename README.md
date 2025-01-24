@@ -1,7 +1,14 @@
 # Code for pharmacodynamic analysis
 <!-- writtern for the analysis of "Nasim Roshani Asl" thesis. -->
+The manuscript for thesis is provided in [thesis manuscript](/thesis%20manuscript/پایان%20نامه%20-%20نسیم%20روشنی.docx)
 
-## NCA analysis
+## final analysis by the *Supervising professor*
+The final analysis for this project was performed by the supervising professor of the thesis using tht Monolix software.\
+All output files sent by *Dr. Roshani* are placed at the following directory.
+- [Analysis output](/Analysis%20output/)
+
+## initial analysis by *Reza Hosseini*
+### NCA analysis
 the unit for concentration in the original data was "mIU/mL"\
 it was converted to "ng/mL" for this analysis.\
 furthermore Bolus dose was 20,000 IU which is equivalent to 0.1 mg.\
@@ -12,7 +19,7 @@ analysis was mainly performed using `pkr` package in R.
 - [NCA results](/NCA%20analysis/result.csv)
 - [NCA graphs](/NCA%20analysis/Output/)
 
-## Population Pharmacodynamic modeling and simulation
+### Population Pharmacodynamic modeling and simulation
 
 [Modeling code](/population%20pk/pop%20pk%20modeling.md)\
 [Model plots](/population%20pk/plot_history.pdf)
