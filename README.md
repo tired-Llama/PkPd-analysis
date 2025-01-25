@@ -1,6 +1,7 @@
 # Code for pharmacodynamic analysis
 <!-- writtern for the analysis of "Nasim Roshani Asl" thesis. -->
-The manuscript for thesis is provided in [thesis manuscript](/thesis%20manuscript/پایان%20نامه%20-%20نسیم%20روشنی.docx)
+The manuscript for thesis is provided in [thesis manuscript](/thesis%20manuscript/پایان%20نامه%20-%20نسیم%20روشنی.docx)\
+the PDF version of the manuscript is available [here](/thesis%20manuscript/پایان%20نامه%20-%20نسیم%20روشنی.pdf)
 
 ## final analysis by the *Supervising professor*
 The final analysis for this project was performed by the supervising professor of the thesis using tht Monolix software.\
