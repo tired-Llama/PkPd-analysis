@@ -1,0 +1,14 @@
+```{r}
+library(openxlsx)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(knitr)
+```
+
+```{r}
+df <- read.csv("Analysis output/نسیم روشنی/nasim roshani 14031012.csv")
+df2 <- df %>% reshape(direction = 'wide', idvar = 'Code', timevar = "time",v.names = "obs", drop= seq(4,41))
+write.xlsx(df2,file = "thesis manuscript/conc.xlsx")
+View(df2)
+```
